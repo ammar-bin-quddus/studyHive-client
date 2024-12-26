@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const allAssignments = () => {
   const assignmentsData = useLoaderData();
@@ -19,8 +19,8 @@ const allAssignments = () => {
               <h2 className="card-title">{assignment.title}</h2>
               <p>{assignment.description}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">View</button>
-                <button className="btn btn-primary">Update</button>
+                <Link to={`/allAssignments/${assignment._id}`}><button className="btn btn-primary">View</button></Link>
+                <Link to={`/update/${assignment._id}`}><button className="btn btn-primary">Update</button></Link>
                 <button className="btn btn-primary">Delete</button>
               </div>
             </div>
