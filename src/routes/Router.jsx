@@ -5,6 +5,8 @@ import Login from "../auth/Login";
 import Register from "../auth/Register";
 import ErrorPage from "../pages/ErrorPage";
 import CreateAssignments from "../pages/CreateAssignments";
+import AllAssignments from "../pages/AllAssignments";
+
 
 const router = createBrowserRouter([
   {
@@ -17,9 +19,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path:"/create-assignments",
-        element: <CreateAssignments />
-      }
+        path: "/create-assignments",
+        element: <CreateAssignments />,
+      },
+      {
+        path: "/assignments",
+        element: <AllAssignments />,
+        loader: () => fetch("http://localhost:3000/allAssignments"),
+      },
     ],
   },
   {
@@ -29,7 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-  }
+  },
 ]);
 
 export default router;
