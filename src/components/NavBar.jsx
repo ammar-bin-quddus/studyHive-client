@@ -24,10 +24,10 @@ const NavBar = () => {
           </summary>
           <ul className="p-2">
             <li>
-              <NavLink to="create-assignments">Create Assignments</NavLink>
+              <NavLink to="/create-assignments">Create Assignments</NavLink>
             </li>
             <li>
-              <NavLink to="attempted-assignments">My Attempted Assignments</NavLink>
+              <NavLink to="/attempted-assignments">My Attempted Assignments</NavLink>
             </li>
           </ul>
         </details>
