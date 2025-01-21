@@ -7,6 +7,10 @@ import ErrorPage from "../pages/ErrorPage";
 import CreateAssignments from "../pages/CreateAssignments";
 import AllAssignments from "../pages/AllAssignments";
 import UpdateAssignments from "../pages/UpdateAssignments";
+import ViewAssignment from "../pages/ViewAssignment";
+import PrivateRoutes from "../privateRoutes/PrivateRoutes";
+import PendingTasks from "../pages/PendingTasks";
+import MyAssignments from "../pages/MyAssignments";
 
 const router = createBrowserRouter([
   {
@@ -19,13 +23,34 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/pending-assignments",
+        element: (
+          <PrivateRoutes>
+            <PendingTasks />
+          </PrivateRoutes>
+        ),
+        loader: () =>
+          fetch(
+            "https://study-hive-server-site.vercel.app/allAssignments/pendingTasks"
+          ),
+      },
+      {
         path: "/create-assignments",
-        element: <CreateAssignments />,
+        element: (
+          <PrivateRoutes>
+            <CreateAssignments />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/assignments",
         element: <AllAssignments />,
-        loader: () => fetch("http://localhost:3000/allAssignments"),
+        loader: () =>
+          fetch("https://study-hive-server-site.vercel.app/allAssignments"),
+      },
+      {
+        path: "/attempted-assignments",
+        element: <PrivateRoutes><MyAssignments /></PrivateRoutes>,
       },
     ],
   },
@@ -39,8 +64,25 @@ const router = createBrowserRouter([
   },
   {
     path: "/update/:id",
-    element: <UpdateAssignments />,
-    loader: ({ params }) => fetch(`http://localhost:3000/update/${params.id}`),
+    element: (
+      <PrivateRoutes>
+        <UpdateAssignments />
+      </PrivateRoutes>
+    ),
+    loader: ({ params }) =>
+      fetch(`https://study-hive-server-site.vercel.app/update/${params.id}`),
+  },
+  {
+    path: "/allAssignments/:id",
+    element: (
+      <PrivateRoutes>
+        <ViewAssignment />
+      </PrivateRoutes>
+    ),
+    loader: ({ params }) =>
+      fetch(
+        `https://study-hive-server-site.vercel.app/allAssignments/${params.id}`
+      ),
   },
 ]);
 

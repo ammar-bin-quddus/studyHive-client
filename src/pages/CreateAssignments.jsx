@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../provider/AuthProvider";
-import DatePicker from "react-datepicker";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const CreateAssignments = () => {
-  // const { user } = useContext(AuthContext);
-  const [startDate, setStartDate] = useState(new Date());
+  const { user } = useContext(AuthContext);
+  const {email} = user;
 
   const handleCreateAssignments = (e) => {
     e.preventDefault();
@@ -15,20 +14,22 @@ const CreateAssignments = () => {
     const description = form.description.value;
     const level = form.level.value;
     const marks = form.marks.value;
+    const dueDate = form.dueDate.value;
 
     const newAssignments = {
       photoUrl,
       title,
       description,
       marks,
-      startDate,
+      dueDate,
       level,
+      email
     };
     //console.log(newAssignments);
 
     // send data to server
 
-    fetch("http://localhost:3000/allAssignments", {
+    fetch("https://study-hive-server-site.vercel.app/allAssignments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -45,6 +46,7 @@ const CreateAssignments = () => {
             icon: "success",
             confirmButtonText: "OK",
           });
+          e.target.reset();
         }
       });
   };
@@ -86,9 +88,9 @@ const CreateAssignments = () => {
               <span className="label-text">Assignment difficulty level</span>
             </label>
             <select name="level" className="select select-bordered">
-              <option value="personal-issue">Easy</option>
-              <option value="startup">Medium</option>
-              <option value="business">Hard</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
           </div>
           {/* description */}
@@ -120,15 +122,11 @@ const CreateAssignments = () => {
             <label className="label">
               <span className="label-text">Due Date</span>
             </label>
-            {/* <input
+            <input
               type="date"
-              name="deadline"
+              name="dueDate"
               className="input input-bordered"
               required
-            /> */}
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
             />
           </div>
         </div>

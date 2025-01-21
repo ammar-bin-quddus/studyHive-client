@@ -16,6 +16,8 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  console.log(user)
+
   //console.log(user, loading);
 
   const handleRegister = (email, password) => {

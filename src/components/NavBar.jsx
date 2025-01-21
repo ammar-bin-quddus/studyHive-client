@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const NavBar = () => {
-  
   const { handleLogOut, user } = useContext(AuthContext);
 
   const links = (
@@ -14,24 +13,30 @@ const NavBar = () => {
       <li>
         <NavLink to="/assignments">Assignments</NavLink>
       </li>
-      <li>
-        <NavLink to="/pending-assignments">Pending Assignments</NavLink>
-      </li>
-      <li>
-        <details>
-          <summary>
-            <NavLink>Profile Picture</NavLink>
-          </summary>
-          <ul className="p-2">
-            <li>
-              <NavLink to="/create-assignments">Create Assignments</NavLink>
-            </li>
-            <li>
-              <NavLink to="/attempted-assignments">My Attempted Assignments</NavLink>
-            </li>
-          </ul>
-        </details>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/pending-assignments">Pending Assignments</NavLink>
+          </li>
+          <li>
+            <details>
+              <summary>
+                <NavLink>Profile Picture</NavLink>
+              </summary>
+              <ul className="p-2">
+                <li>
+                  <NavLink to="/create-assignments">Create Assignments</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/attempted-assignments">
+                    My Attempted Assignments
+                  </NavLink>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -65,7 +70,7 @@ const NavBar = () => {
         <a className="font-extrabold text-2xl">StudyHive</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 z-50">{links}</ul>
       </div>
       <div className="navbar-end gap-2">
         {user ? (
