@@ -10,7 +10,7 @@ const PendingTasks = () => {
 
   const [pendingTasks, setPendingTasks] = useState(allData);
   const [selectedTask, setSelectedTask] = useState(null);
-  console.log(pendingTasks);
+  //console.log(pendingTasks);
 
   const handleGiveMark = (task) => {
     setSelectedTask(task);
@@ -39,7 +39,7 @@ const PendingTasks = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
 
         if (data.modifiedCount > 0) {
           Swal.fire({

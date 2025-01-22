@@ -50,7 +50,7 @@ const Register = () => {
 
         // send data to server
 
-        fetch("https://crowd-donation-server.vercel.app/users", {
+        fetch("https://study-hive-server-site.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -79,6 +79,28 @@ const Register = () => {
     handleGoogleLogin()
       .then((res) => {
         setLoading(false);
+        // send data to server
+
+        const user = res.user;
+
+        const userData = {
+          userName: user.displayName,
+          photoURL: user.photoURL,
+          email: user.email,
+        };
+
+        fetch("https://study-hive-server-site.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            //console.log(data);
+          });
+
         navigate("/");
       })
       .catch((err) => {

@@ -6,7 +6,7 @@ const MyAssignments = () => {
   const [selected, setSelected] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  console.log(myAssignments);
+  //console.log(myAssignments);
 
   const { user } = useContext(AuthContext);
 

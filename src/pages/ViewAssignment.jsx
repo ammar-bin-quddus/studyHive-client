@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const ViewAssignment = () => {
   const assignmentsData = useLoaderData();
-  console.log(assignmentsData);
+  //console.log(assignmentsData);
 
   const { user } = useContext(AuthContext);
 
@@ -39,7 +39,7 @@ const ViewAssignment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -54,14 +54,14 @@ const ViewAssignment = () => {
 
   return (
     <div className="w-11/12 mx-auto my-8">
-      <div className="card card-side bg-base-100 shadow-xl">
-        <figure className="w-[40%]">
+      <div className="card card-side bg-base-100 shadow-xl flex flex-col sm:flex-row">
+        <figure className="sm:w-[40%] h-[300px]">
           <img src={photoUrl} alt="Movie" />
         </figure>
-        <div className="card-body w-[60%]">
+        <div className="card-body sm:w-[60%]">
           <h2 className="card-title">{title}</h2>
           <p>{description}</p>
-          <p>Marks: {marks}</p>
+          <p><span className="font-semibold">Marks:</span> {marks}</p>
           <p>Due Date: {dueDate}</p>
           <p>Assignment Level: {level}</p>
           <div className="card-actions justify-end">
