@@ -75,7 +75,7 @@ const NavBar = () => {
       <div className="navbar-end gap-2">
         {user ? (
           <div className="flex items-center gap-2">
-            <div>
+            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
               <img className="w-12 h-12 rounded-full" src={user?.photoURL} />
             </div>
             <button
