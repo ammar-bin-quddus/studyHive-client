@@ -68,7 +68,7 @@ const ViewAssignment = () => {
             <button
               disabled= {user?.email === email ? true : false}
               onClick={() => document.getElementById("my_modal_3").showModal()}
-              className="btn btn-primary"
+              className="sharedBtn"
             >
               Take Assignment
             </button>
@@ -122,7 +122,7 @@ const ViewAssignment = () => {
               </div>
 
               <div className="modal-action justify-center">
-                <button className="btn">Submit</button>
+                <button className="sharedBtn">Submit</button>
               </div>
             </form>
           </div>

@@ -14,7 +14,7 @@ const MainLayout = () => {
         <Loading />
       ) : (
         <>
-          <div className="w-11/12 mx-auto py-3">
+          <div className="w-full">
             <NavBar />
           </div>
           <Outlet />

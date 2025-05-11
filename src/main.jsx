@@ -8,6 +8,7 @@ import router from "./routes/Router.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./provider/AuthProvider.jsx";
+import "./components/button.css"
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

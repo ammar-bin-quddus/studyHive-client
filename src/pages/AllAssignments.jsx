@@ -67,15 +67,15 @@ const allAssignments = () => {
               <p>{task.description}</p>
               <div className="card-actions justify-end">
                 <Link to={`/allAssignments/${task._id}`}>
-                  <button className="btn btn-primary">View</button>
+                  <button className="sharedBtn">View</button>
                 </Link>
                 <Link to={`/update/${task._id}`}>
-                  <button className="btn btn-primary">Update</button>
+                  <button className="sharedBtn">Update</button>
                 </Link>
                 <button
                   disabled={user?.email === task.email ? false : true}
                   onClick={() => handleDelete(task._id)}
-                  className="btn btn-primary"
+                  className="sharedBtn"
                 >
                   Delete
                 </button>

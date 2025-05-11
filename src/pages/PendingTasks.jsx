@@ -88,7 +88,7 @@ const PendingTasks = () => {
                   <td>{task?.examineeName || "N/A"}</td>
                   <td>
                     <button
-                      className="btn btn-primary"
+                      className="sharedBtn"
                       onClick={() => {
                         handleGiveMark(task);
                         document.getElementById("my_modal_3").showModal();
@@ -157,7 +157,7 @@ const PendingTasks = () => {
                 ></textarea>
               </div>
               <div className="modal-action justify-center">
-                <button className="btn">Submit</button>
+                <button className="sharedBtn">Submit</button>
               </div>
             </form>
           </div>

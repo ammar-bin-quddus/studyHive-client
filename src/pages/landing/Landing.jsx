@@ -19,7 +19,7 @@ const Landing = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 3000,
+            delay: 7000,
             disableOnInteraction: false,
           }}
           modules={[Autoplay]}
@@ -78,16 +78,16 @@ const Landing = () => {
             },
             {
               title: "Grade Assignments",
-              desc: "Evaluate and provide feedback on your friends' assignments.",
+              desc: "Evaluate and provide feedback on your friend's assignments.",
             },
             {
               title: "Track Progress",
-              desc: "Monitor your and your friends' assignment completion status.",
+              desc: "Monitor your and your friend's assignment completion status.",
             },
           ].map((card, idx) => (
             <div
               key={idx}
-              className="card bg-base-100 shadow-md transition-all duration-75 hover:bg-gradient-to-r hover:from-[#09203F] hover:to-[#537895]"
+              className="card bg-base-100 cursor-pointer shadow-md transition-all duration-75 hover:bg-gradient-to-r hover:from-[#09203F] hover:to-[#537895]"
             >
               <div className="card-body transition-colors duration-500 hover:text-white">
                 <h3 className="text-xl font-bold">{card.title}</h3>
@@ -101,7 +101,7 @@ const Landing = () => {
       <section className="w-11/12 mx-auto my-16">
         <h2 className="text-3xl text-center font-bold mb-8">FAQs</h2>
         <div className="space-y-4">
-          <div className="collapse collapse-plus bg-base-100 shadow-md">
+          <div className="collapse collapse-plus bg-base-100 shadow-md hover:scale-y-125 transition-transform">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
               How do I create an assignment?
@@ -113,7 +113,7 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <div className="collapse collapse-plus bg-base-100 shadow-md">
+          <div className="collapse collapse-plus bg-base-100 shadow-md hover:scale-y-125 transition-transform">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
               Can I grade my own assignments?
@@ -124,7 +124,7 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <div className="collapse collapse-plus bg-base-100 shadow-md">
+          <div className="collapse collapse-plus bg-base-100 shadow-md hover:scale-y-125 transition-transform">
             <input type="checkbox" />
             <div className="collapse-title text-xl font-medium">
               Is this platform free to use?

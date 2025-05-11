@@ -150,7 +150,7 @@ const UpdateAssignments = () => {
             </div>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-neutral">Update</button>
+            <button className="sharedBtn">Update</button>
           </div>
         </form>
       </div>

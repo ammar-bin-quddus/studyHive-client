@@ -185,7 +185,7 @@ const Register = () => {
               </label>
             )}
             <div className="form-control mt-6">
-              <button className="btn btn-neutral">Register</button>
+              <button className="sharedBtn">Register</button>
             </div>
           </form>
           <p className="font-semibold text-center">

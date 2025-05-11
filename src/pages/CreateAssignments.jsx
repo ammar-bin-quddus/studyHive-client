@@ -131,7 +131,7 @@ const CreateAssignments = () => {
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-neutral">Create</button>
+          <button className="sharedBtn">Create</button>
         </div>
       </form>
     </div>

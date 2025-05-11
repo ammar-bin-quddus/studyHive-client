@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 * {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+.dark-mode {
+  background-color: rgb(31, 41, 55);
+  color: #ffffff;
 }

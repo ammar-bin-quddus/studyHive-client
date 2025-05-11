@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { IoMdMoon, IoMdSunny } from "react-icons/io";
 
 const NavBar = () => {
   const { handleLogOut, user } = useContext(AuthContext);
+  const [darkMode, setDarkMode] = useState(false);
 
   const links = (
     <>
@@ -40,8 +42,13 @@ const NavBar = () => {
     </>
   );
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("dark-mode");
+  };
+
   return (
-    <nav className="navbar bg-base-100 fixed top-0 left-0 z-50 py-2 sm:py-3 px-8 sm:px-12">
+    <nav className="navbar bg-base-100 px-12 py-3">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -75,7 +82,10 @@ const NavBar = () => {
       <div className="navbar-end gap-2">
         {user ? (
           <div className="flex items-center gap-2">
-            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+            <div
+              className="tooltip tooltip-bottom"
+              data-tip={user?.displayName}
+            >
               <img className="w-12 h-12 rounded-full" src={user?.photoURL} />
             </div>
             <button
@@ -95,6 +105,15 @@ const NavBar = () => {
             </Link>
           </>
         )}
+
+        {/* dark mode toggle button */}
+
+        <button
+          onClick={toggleDarkMode}
+          className="text-yellow-400 text-3xl ml-4 hover:text-gray-500 transition-all duration-300"
+        >
+          {darkMode ? <IoMdSunny /> : <IoMdMoon />}
+        </button>
       </div>
     </nav>
   );
