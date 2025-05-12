@@ -64,14 +64,18 @@ An Online Group Study Platform for Collaborative Learning
    cd studyhive
 
 2. **Frontend setup:**
-cd client
-npm install
-npm run dev
 
-2. **Backend setup:**
-cd server
-npm install
-nodemon start
+    ```bash
+    cd client
+    npm install
+    npm run dev
+
+3. **Backend setup:**
+
+    ```bash
+    cd server
+    npm install
+    nodemon start
 
 
 🌐 Live Site
