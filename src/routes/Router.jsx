@@ -29,10 +29,18 @@ const router = createBrowserRouter([
             <PendingTasks />
           </PrivateRoutes>
         ),
-        loader: () =>
-          fetch(
-            "https://study-hive-server-site.vercel.app/allAssignments/pendingTasks"
-          ),
+        loader: () => {
+          const token = localStorage.getItem("access-token");
+
+          return fetch(
+            "https://study-hive-server-site.vercel.app/allAssignments/pendingTasks",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+        },
       },
       {
         path: "/create-assignments",
@@ -50,7 +58,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/attempted-assignments",
-        element: <PrivateRoutes><MyAssignments /></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <MyAssignments />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

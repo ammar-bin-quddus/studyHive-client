@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -8,9 +8,12 @@ const PendingTasks = () => {
 
   const { user } = useContext(AuthContext);
 
-  const [pendingTasks, setPendingTasks] = useState(allData);
+  const [pendingTasks, setPendingTasks] = useState(allData || []);
   const [selectedTask, setSelectedTask] = useState(null);
-  //console.log(pendingTasks);
+  // console.log(pendingTasks);
+  // console.log(allData)
+  console.log("Pending Tasks Data: ", pendingTasks);
+  console.log("User Email: ", user?.email);
 
   const handleGiveMark = (task) => {
     setSelectedTask(task);
@@ -74,31 +77,42 @@ const PendingTasks = () => {
             </tr>
           </thead>
           <tbody>
-            {pendingTasks
-              .filter(
-                (task) =>
-                  task.examineeEmail !== user?.email &&
-                  task.status === "pending"
-              )
-              .map((task, index) => (
-                <tr key={task._id}>
-                  <td>{index + 1}</td>
-                  <td>{task?.title}</td>
-                  <td>{task?.marks}</td>
-                  <td>{task?.examineeName || "N/A"}</td>
-                  <td>
-                    <button
-                      className="sharedBtn"
-                      onClick={() => {
-                        handleGiveMark(task);
-                        document.getElementById("my_modal_3").showModal();
-                      }}
-                    >
-                      Give Mark
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {pendingTasks.filter(
+              (task) =>
+                task.examineEmail !== user?.email && task.status === "pending"
+            ).length > 0 ? (
+              pendingTasks
+                .filter(
+                  (task) =>
+                    task.examineeEmail !== user?.email &&
+                    task.status === "pending"
+                )
+                .map((task, index) => (
+                  <tr key={task._id}>
+                    <td>{index + 1}</td>
+                    <td>{task?.title}</td>
+                    <td>{task?.marks}</td>
+                    <td>{task?.examineeName || "N/A"}</td>
+                    <td>
+                      <button
+                        className="sharedBtn"
+                        onClick={() => {
+                          handleGiveMark(task);
+                          document.getElementById("my_modal_3").showModal();
+                        }}
+                      >
+                        Give Mark
+                      </button>
+                    </td>
+                  </tr>
+                ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="text-center py-4">
+                  No pending tasks available.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
