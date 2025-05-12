@@ -18,7 +18,7 @@ const MainLayout = () => {
             <NavBar />
           </div>
           <Outlet />
-          <div className="w-11/12 mx-auto">
+          <div className="w-full">
             <Footer />
           </div>
         </>
