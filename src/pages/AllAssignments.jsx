@@ -7,7 +7,7 @@ const allAssignments = () => {
   const assignmentsData = useLoaderData();
   // console.log(assignmentsData);
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [myTaskData, setMyTaskData] = useState(assignmentsData);
 
   const handleDelete = (id) => {
@@ -50,8 +50,20 @@ const allAssignments = () => {
       <div className="my-8">
         <h1 className="text-center text-2xl font-bold">All Assignments</h1>
       </div>
-      <div className={`w-full h-[50vh] justify-center items-center ${myTaskData.length === 0 ? "flex" : "hidden"}`}>
-        <p className="text-3xl text-gray-600 hover:text-blue-400 transition-colors">{myTaskData.length === 0 ? <Link to='/create-assignments'><p>Create Some Assignment ⚠</p></Link> : ""}</p>
+      <div
+        className={`w-full h-[50vh] justify-center items-center ${
+          myTaskData.length === 0 ? "flex" : "hidden"
+        }`}
+      >
+        <p className="text-3xl text-gray-600 hover:text-blue-400 transition-colors">
+          {myTaskData.length === 0 ? (
+            <Link to="/create-assignments">
+              <p>Create Some Assignment ⚠</p>
+            </Link>
+          ) : (
+            ""
+          )}
+        </p>
       </div>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {myTaskData.map((task) => (
@@ -70,12 +82,19 @@ const allAssignments = () => {
                   <button className="sharedBtn">View</button>
                 </Link>
                 <Link to={`/update/${task._id}`}>
-                  <button className="sharedBtn">Update</button>
+                  <button
+                    className={`sharedBtn ${
+                      user?.email === task.email ? "block" : "hidden"
+                    }`}
+                  >
+                    Update
+                  </button>
                 </Link>
                 <button
-                  disabled={user?.email === task.email ? false : true}
                   onClick={() => handleDelete(task._id)}
-                  className="sharedBtn"
+                  className={`sharedBtn ${
+                    user?.email === task.email ? "block" : "hidden"
+                  }`}
                 >
                   Delete
                 </button>

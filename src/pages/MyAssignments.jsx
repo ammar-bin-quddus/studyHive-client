@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const MyAssignments = () => {
@@ -11,15 +11,38 @@ const MyAssignments = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (user?.email) {
+      fetchData();
+    }
+  }, [user]);
 
   const fetchData = async () => {
-    const res = await fetch(
-      `https://study-hive-server-site.vercel.app/attempted-assignments?email=${user?.email}`
-    );
-    const data = await res.json();
-    setMyAssignments(data);
+    try {
+      const token = localStorage.getItem("access-token");
+      const res = await fetch(
+        `https://study-hive-server-site.vercel.app/attempted-assignments?email=${user.email}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Unauthorized or failed to fetch");
+      }
+
+      const data = await res.json();
+
+      if (Array.isArray(data)) {
+        setMyAssignments(data);
+      } else {
+        setMyAssignments([]);
+      }
+    } catch (error) {
+      console.error("Error fetching assignments:", error);
+      setMyAssignments([]); // fallback to prevent map crash
+    }
   };
 
   const handleOpenModal = (task) => {

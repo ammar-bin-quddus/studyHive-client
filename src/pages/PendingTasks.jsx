@@ -12,8 +12,8 @@ const PendingTasks = () => {
   const [selectedTask, setSelectedTask] = useState(null);
   // console.log(pendingTasks);
   // console.log(allData)
-  console.log("Pending Tasks Data: ", pendingTasks);
-  console.log("User Email: ", user?.email);
+  // console.log("Pending Tasks Data: ", pendingTasks);
+  // console.log("User Email: ", user?.email);
 
   const handleGiveMark = (task) => {
     setSelectedTask(task);

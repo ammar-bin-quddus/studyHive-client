@@ -53,8 +53,18 @@ const router = createBrowserRouter([
       {
         path: "/assignments",
         element: <AllAssignments />,
-        loader: () =>
-          fetch("https://study-hive-server-site.vercel.app/allAssignments"),
+        loader: () => {
+          const token = localStorage.getItem("access-token");
+
+          return fetch(
+            "https://study-hive-server-site.vercel.app/allAssignments",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+        },
       },
       {
         path: "/attempted-assignments",
@@ -81,8 +91,18 @@ const router = createBrowserRouter([
         <UpdateAssignments />
       </PrivateRoutes>
     ),
-    loader: ({ params }) =>
-      fetch(`https://study-hive-server-site.vercel.app/update/${params.id}`),
+    loader: ({ params }) => {
+      const token = localStorage.getItem("access-token");
+
+      return fetch(
+        `https://study-hive-server-site.vercel.app/update/${params.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    },
   },
   {
     path: "/allAssignments/:id",
@@ -91,10 +111,18 @@ const router = createBrowserRouter([
         <ViewAssignment />
       </PrivateRoutes>
     ),
-    loader: ({ params }) =>
-      fetch(
-        `https://study-hive-server-site.vercel.app/allAssignments/${params.id}`
-      ),
+    loader: ({ params }) => {
+      const token = localStorage.getItem("access-token");
+
+      return fetch(
+        `https://study-hive-server-site.vercel.app/allAssignments/${params.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    },
   },
 ]);
 
