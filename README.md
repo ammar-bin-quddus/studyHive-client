@@ -1,51 +1,78 @@
-# StudyHive: Online Group-Study Platform
+# StudyHive 🧠✨  
+An Online Group Study Platform for Collaborative Learning
 
-## Purpose
+## 📖 Project Overview
 
-StudyHive is a web application designed to facilitate online group study with friends. Registered users can:
+**StudyHive** is a full-stack web application designed to promote collaborative learning among students. Users can create, submit, and evaluate assignments in a friendly, interactive environment. It supports grading by peers and helps track assignment performance — making study sessions more engaging and productive.
 
-- Create assignments
+## 🚀 Features
 
-- Submit and complete assignments
+### 👤 Authentication
+- Email/Password & Google login via Firebase
+- JWT-based token authorization for secure access
 
-- Grade their friends' assignments
+### 📚 Assignment Management
+- Create new assignments
+- Submit responses with file links
+- Evaluate others’ submissions (peer grading)
+- View feedback and marks
 
-This application fosters a collaborative learning environment by allowing users to interact, share knowledge, and grow together.
+### 🌗 UI & UX
+- Theme toggling: Light/Dark mode
+- Responsive design for all screen sizes
+- Real-time feedback via toast and alerts
 
-## npm packages i have used.
+### 🔍 Utilities
+- Search assignments by title
+- Filter assignments by difficulty level (`easy`, `medium`, `hard`)
 
+### 📄 Pages
+**Public:**
+- Home (with banner, feature showcase, and FAQ)
+
+**Private:**
+- All Assignments
+- My Assignments
+- Pending Reviews
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React
+- React Router DOM
+- Tailwind CSS + DaisyUI
+- Firebase Authentication
+- Axios
+- SweetAlert2
 - Lottie React
-- React-simple-typewriter
-- react-icons
-- react-toastify
-- sweet alert
+- React Toastify
+- React Simple Typewriter
+- React Icons
 
-## Key Features
+**Backend:**
+- Express.js
+- MongoDB (with Mongoose)
+- JSON Web Token (JWT)
+- dotenv & CORS
 
-Key Features
+## 🧰 Setup Instructions
 
-- User Authentication: Login with email/password or Google authentication (JWT-based authentication).
+1. **Clone the repository:**
 
-- Theme Toggling: Light and Dark mode switching for better accessibility and user comfort.
+   ```bash
+   git clone https://github.com/your-username/studyhive.git
+   cd studyhive
 
-- Assignment Management: Create, submit, and evaluate assignments. View grades and feedback for completed assignments.
+2. **Frontend setup:**
+cd client
+npm install
+npm run dev
 
-Public Pages:
+2. **Backend setup:**
+cd server
+npm install
+nodemon start
 
-- Home Page: Includes a banner, feature showcase, and FAQ section.
 
-Accessible to all visitors.
-
-Private Pages:
-
-- Pending Assignments Page: View and evaluate assignments submitted by others.
-
-- My Assignments Page: Track assignments submitted by the user with their status, marks, and feedback.
-
-Responsive Design:
-
-- Fully responsive interface for seamless usage across devices.
-
-## 🔗 Project Live Link
-
-https://studyhive-896d8.web.app/
+🌐 Live Site
+🔗 [Visit StudyHive](https://studyhive-896d8.web.app/)

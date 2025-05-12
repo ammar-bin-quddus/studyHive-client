@@ -40,7 +40,7 @@ const MyAssignments = () => {
         setMyAssignments([]);
       }
     } catch (error) {
-      console.error("Error fetching assignments:", error);
+      //console.error("Error fetching assignments:", error);
       setMyAssignments([]); // fallback to prevent map crash
     }
   };
