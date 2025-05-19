@@ -9,6 +9,8 @@ import banner4 from "../../assets/banner4.jpg";
 import banner5 from "../../assets/banner5.jpg";
 import "./landing.css";
 import { Autoplay } from "swiper/modules";
+import UserReviews from "./UserReviews";
+import Stats from "./Stats";
 
 const Landing = () => {
   return (
@@ -97,6 +99,10 @@ const Landing = () => {
           ))}
         </div>
       </section>
+      {/* reviews */}
+      <UserReviews />
+      {/* stats section */}
+      <Stats />
       {/* faq section */}
       <section className="w-11/12 mx-auto my-8 sm:my-16">
         <h2 className="text-3xl text-center font-bold mb-8">FAQs</h2>

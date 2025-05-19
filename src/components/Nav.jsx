@@ -208,7 +208,7 @@ function Navbar() {
                     className={`block py-2 px-4 rounded-full transition-all duration-300 ${
                       activeButton === "/pending-assignments"
                         ? "bg-yellow-600 text-white shadow-lg"
-                        : "hover:bg-yellow-600 hover:text-white"
+                        : "text-yellow-400 hover:bg-yellow-600 hover:text-white"
                     }`}
                     onClick={() => {
                       setActiveButton("/pending-assignments");
@@ -222,7 +222,7 @@ function Navbar() {
                     className={`block py-2 px-4 rounded-full transition-all duration-300 ${
                       activeButton === "/create-assignments"
                         ? "bg-yellow-600 text-white shadow-lg"
-                        : "hover:bg-yellow-600 hover:text-white"
+                        : "text-yellow-400 hover:bg-yellow-600 hover:text-white"
                     }`}
                     onClick={() => {
                       setActiveButton("/create-assignments");
@@ -236,7 +236,7 @@ function Navbar() {
                     className={`block py-2 px-4 rounded-full transition-all duration-300 ${
                       activeButton === "/attempted-assignments"
                         ? "bg-yellow-600 text-white shadow-lg"
-                        : "hover:bg-yellow-600 hover:text-white"
+                        : "text-yellow-400 hover:bg-yellow-600 hover:text-white"
                     }`}
                     onClick={() => {
                       setActiveButton("/attempted-assignments");

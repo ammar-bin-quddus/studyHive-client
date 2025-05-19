@@ -1,82 +1,85 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-800 text-white py-8">
-      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h2 className="text-2xl font-bold">StudyHive</h2>
-          <p className="mt-2">
-            Connect, collaborate, and conquer assignments with friends. Your
-            study partner for group success!
-          </p>
+    <footer className="bg-[#1e293b] text-white">
+      <div className="max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* About Section */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">StudyHive</h3>
+            <p className="text-gray-400">
+              StudyHive is a collaborative group-study platform where users can create, submit, and evaluate assignments together to grow academically with peers.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li>
+                <a href="/" className="hover:text-white">Home</a>
+              </li>
+              <li>
+                <a href="/assignments" className="hover:text-white">Assignments</a>
+              </li>
+              <li>
+                <a href="/dashboard" className="hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                <a href="/faq" className="hover:text-white">FAQ</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter Section */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Stay Updated</h3>
+            <form>
+              <div className="flex items-center">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="w-full px-4 py-2 rounded-l-md text-gray-800 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#e56503] hover:bg-orange-700 text-white px-4 py-2 rounded-r-md"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-          <ul className="space-y-2">
-            <li>Home</li>
-            <li>Assignments</li>
-            <li>About Us</li>
-            <li>Contact</li>
-          </ul>
-        </div>
+        {/* Divider */}
+        <div className="border-t border-gray-700 my-8"></div>
 
-        <div>
-          <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-          <div className="flex space-x-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12c0 5.022 3.657 9.175 8.438 9.877v-6.988H7.897v-2.889h2.541V9.413c0-2.51 1.492-3.889 3.776-3.889 1.094 0 2.238.195 2.238.195v2.465h-1.26c-1.241 0-1.625.772-1.625 1.562v1.876h2.773l-.443 2.889h-2.33v6.988C18.343 21.175 22 17.022 22 12z" />
-              </svg>
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+          <p className="text-center">&copy; {new Date().getFullYear()} StudyHive. All rights reserved.</p>
+
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <FaFacebook />
             </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8.29 20.251c7.547 0 11.675-6.155 11.675-11.496 0-.175 0-.349-.012-.522A8.18 8.18 0 0022 5.92a8.301 8.301 0 01-2.357.637 4.076 4.076 0 001.804-2.243 8.27 8.27 0 01-2.605.977A4.105 4.105 0 0016.847 4c-2.263 0-4.095 1.813-4.095 4.047 0 .317.036.626.104.923A11.633 11.633 0 013 4.749a4.013 4.013 0 00-.554 2.033c0 1.404.72 2.645 1.805 3.372A4.073 4.073 0 012.8 9.5v.051c0 1.962 1.392 3.604 3.252 3.973a4.093 4.093 0 01-1.848.07c.523 1.626 2.034 2.81 3.831 2.844a8.233 8.233 0 01-5.055 1.728A8.4 8.4 0 012 19.892a11.644 11.644 0 006.29 1.847" />
-              </svg>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <FaXTwitter />
             </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.206.057 2.063.24 2.835.507a5.992 5.992 0 012.163 1.27 5.992 5.992 0 011.27 2.163c.267.772.45 1.63.507 2.835.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.057 1.206-.24 2.063-.507 2.835a5.992 5.992 0 01-1.27 2.163 5.992 5.992 0 01-2.163 1.27c-.772.267-1.63.45-2.835.507-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.206-.057-2.063-.24-2.835-.507a5.992 5.992 0 01-2.163-1.27 5.992 5.992 0 01-1.27-2.163c-.267-.772-.45-1.63-.507-2.835-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.057-1.206.24-2.063.507-2.835a5.992 5.992 0 011.27-2.163 5.992 5.992 0 012.163-1.27c.772-.267 1.63-.45 2.835-.507 1.266-.058 1.646-.07 4.85-.07zm0-2.163C8.741 0 8.332.015 7.052.072 5.759.129 4.609.347 3.584.822 2.561 1.296 1.8 2.05 1.327 3.073.852 4.096.633 5.246.576 6.539.519 7.819.504 8.228.504 12s.015 4.181.072 5.461c.057 1.293.276 2.443.751 3.466.473 1.023 1.234 1.777 2.257 2.251 1.023.473 2.173.692 3.466.749 1.28.057 1.689.072 5.461.072s4.181-.015 5.461-.072c1.293-.057 2.443-.276 3.466-.751 1.023-.473 1.777-1.234 2.251-2.257.473-1.023.692-2.173.749-3.466.057-1.28.072-1.689.072-5.461s-.015-4.181-.072-5.461c-.057-1.293-.276-2.443-.749-3.466-.473-1.023-1.234-1.777-2.257-2.251-1.023-.473-2.173-.692-3.466-.749-1.28-.057-1.689-.072-5.461-.072zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 2.163a3.999 3.999 0 110 7.998 3.999 3.999 0 010-7.998zm6.406-.39a1.44 1.44 0 100 2.879 1.44 1.44 0 000-2.879z" />
-              </svg>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <FaInstagram />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <FaLinkedin />
             </a>
           </div>
         </div>
       </div>
-      <div className="mt-8 text-center text-sm border-t border-gray-400 pt-4">
-        © 2025 StudyHive. All rights reserved.
-      </div>
-    </div>
+    </footer>
   );
 };
 

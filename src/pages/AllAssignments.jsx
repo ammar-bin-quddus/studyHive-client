@@ -73,8 +73,8 @@ const allAssignments = () => {
 
   return (
     <div className="w-11/12 mx-auto my-8">
-      <div className="my-8 flex justify-between items-center">
-        <div>
+      <div className="my-8 flex max-md:flex-col gap-5 justify-between items-center">
+        <div className="max-md:order-2">
           <label className="input input-bordered flex items-center gap-2">
             <input
               onChange={(e) => setSearchName(e.target.value)}
@@ -87,8 +87,8 @@ const allAssignments = () => {
             </button>
           </label>
         </div>
-        <h1 className="text-center text-2xl font-bold">All Assignments</h1>
-        <div className="space-x-2">
+        <h1 className="text-center text-2xl font-bold max-md:order-1">All Assignments</h1>
+        <div className="space-x-2 max-md:order-3">
           {["easy", "medium", "hard"].map((level) => (
             <button
               key={level}

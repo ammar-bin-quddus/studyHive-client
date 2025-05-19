@@ -111,7 +111,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className="w-11/12 mx-auto py-3">
+      <div>
         <Nav />
       </div>
       <div className="min-h-screen flex justify-center items-center my-10">
