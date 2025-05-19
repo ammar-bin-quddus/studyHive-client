@@ -14,7 +14,7 @@ const Landing = () => {
   return (
     <div className="w-full mb-8">
       {/* banner section */}
-      <section className="w-full h-[90vh]">
+      <section className="w-full h-full sm:h-[90vh]">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -68,7 +68,7 @@ const Landing = () => {
         </Swiper>
       </section>
       {/* featured section */}
-      <section className="w-11/12 mx-auto my-16">
+      <section className="w-11/12 mx-auto my-8 sm:my-16">
         <h2 className="text-3xl text-center font-bold mb-8">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -98,7 +98,7 @@ const Landing = () => {
         </div>
       </section>
       {/* faq section */}
-      <section className="w-11/12 mx-auto my-16">
+      <section className="w-11/12 mx-auto my-8 sm:my-16">
         <h2 className="text-3xl text-center font-bold mb-8">FAQs</h2>
         <div className="space-y-4">
           <div className="collapse collapse-plus bg-base-100 shadow-md hover:scale-y-125 transition-transform">
