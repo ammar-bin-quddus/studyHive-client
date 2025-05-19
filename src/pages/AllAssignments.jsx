@@ -2,7 +2,9 @@ import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTag } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa6";
+import { CiDiscount1 } from "react-icons/ci";
 
 const allAssignments = () => {
   const assignmentsData = useLoaderData();
@@ -13,11 +15,13 @@ const allAssignments = () => {
   const [selectedLevel, setSelectedLevel] = useState("");
   const [myTaskData, setMyTaskData] = useState(assignmentsData);
 
-  console.log(myTaskData);
+  //console.log(myTaskData);
 
   const filteredCard = myTaskData.filter((task) =>
     task.title.toLowerCase().includes(searchName.toLowerCase())
   );
+
+  console.log(filteredCard);
 
   const handleSearch = () => {
     fetch(
@@ -87,7 +91,9 @@ const allAssignments = () => {
             </button>
           </label>
         </div>
-        <h1 className="text-center text-2xl font-bold max-md:order-1">All Assignments</h1>
+        <h1 className="text-center text-2xl font-bold max-md:order-1">
+          All Assignments
+        </h1>
         <div className="space-x-2 max-md:order-3">
           {["easy", "medium", "hard"].map((level) => (
             <button
@@ -126,39 +132,85 @@ const allAssignments = () => {
         </p>
       </div>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {filteredCard.map((task) => (
+        {filteredCard.map((task, index) => (
+          // <div
+          //   key={task._id}
+          //   className="card card-compact bg-base-100 shadow-xl"
+          // >
+          //   <figure>
+          //     <img className="w-full h-56" src={task.photoUrl} />
+          //   </figure>
+          //   <div className="card-body">
+          //     <h2 className="card-title">{task.title}</h2>
+          //     <p>{task.description}</p>
+          //     <div className="card-actions justify-end">
+          //       <Link to={`/allAssignments/${task._id}`}>
+          //         <button className="sharedBtn">View</button>
+          //       </Link>
+          //       <Link to={`/update/${task._id}`}>
+          //         <button
+          //           className={`sharedBtn ${
+          //             user?.email === task.email ? "block" : "hidden"
+          //           }`}
+          //         >
+          //           Update
+          //         </button>
+          //       </Link>
+          //       <button
+          //         onClick={() => handleDelete(task._id)}
+          //         className={`sharedBtn ${
+          //           user?.email === task.email ? "block" : "hidden"
+          //         }`}
+          //       >
+          //         Delete
+          //       </button>
+          //     </div>
+          //   </div>
+          // </div>
+          // -------------------------
           <div
-            key={task._id}
-            className="card card-compact bg-base-100 shadow-xl"
+            key={index}
+            className="bg-gray-900 text-white p-6 rounded-lg shadow-md border border-yellow-500 hover:scale-105 transition-transform duration-300"
           >
-            <figure>
-              <img className="w-full h-56" src={task.photoUrl} />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{task.title}</h2>
-              <p>{task.description}</p>
-              <div className="card-actions justify-end">
-                <Link to={`/allAssignments/${task._id}`}>
-                  <button className="sharedBtn">View</button>
-                </Link>
-                <Link to={`/update/${task._id}`}>
-                  <button
-                    className={`sharedBtn ${
-                      user?.email === task.email ? "block" : "hidden"
-                    }`}
-                  >
-                    Update
-                  </button>
-                </Link>
+            <img
+              src={task?.photoUrl}
+              alt={task?.title}
+              className="w-full h-40 object-cover rounded-t-lg mb-4"
+            />
+            <h2 className="mt-1 flex items-center text-xl font-semibold text-yellow-400">
+              <FaTag className="mr-2 text-yellow-400" /> {task?.title}
+            </h2>
+            <p className="mt-1 flex  items-center">
+              <CiDiscount1 className="mr-2 text-xl text-yellow-200" /> Marks:{" "}
+              <span className="text-yellow-200">{task?.marks}</span>
+            </p>
+            <p className="mt-1 flex items-center">
+              <FaCalendar className="mr-2 text-xl text-yellow-200" /> Deadline:{" "}
+              <span className="text-yellow-200">{task?.dueDate}</span>
+            </p>
+
+            {/* View Details Button */}
+            <div className="flex justify-center items-center flex-wrap gap-2">
+              <Link to={`/allAssignments/${task._id}`}>
+                <button className="sharedBtn">View</button>
+              </Link>
+              <Link to={`/update/${task._id}`}>
                 <button
-                  onClick={() => handleDelete(task._id)}
                   className={`sharedBtn ${
                     user?.email === task.email ? "block" : "hidden"
                   }`}
                 >
-                  Delete
+                  Update
                 </button>
-              </div>
+              </Link>
+              <button
+                onClick={() => handleDelete(task._id)}
+                className={`sharedBtn ${
+                  user?.email === task.email ? "block" : "hidden"
+                }`}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
