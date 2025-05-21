@@ -133,41 +133,6 @@ const allAssignments = () => {
       </div>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredCard.map((task, index) => (
-          // <div
-          //   key={task._id}
-          //   className="card card-compact bg-base-100 shadow-xl"
-          // >
-          //   <figure>
-          //     <img className="w-full h-56" src={task.photoUrl} />
-          //   </figure>
-          //   <div className="card-body">
-          //     <h2 className="card-title">{task.title}</h2>
-          //     <p>{task.description}</p>
-          //     <div className="card-actions justify-end">
-          //       <Link to={`/allAssignments/${task._id}`}>
-          //         <button className="sharedBtn">View</button>
-          //       </Link>
-          //       <Link to={`/update/${task._id}`}>
-          //         <button
-          //           className={`sharedBtn ${
-          //             user?.email === task.email ? "block" : "hidden"
-          //           }`}
-          //         >
-          //           Update
-          //         </button>
-          //       </Link>
-          //       <button
-          //         onClick={() => handleDelete(task._id)}
-          //         className={`sharedBtn ${
-          //           user?.email === task.email ? "block" : "hidden"
-          //         }`}
-          //       >
-          //         Delete
-          //       </button>
-          //     </div>
-          //   </div>
-          // </div>
-          // -------------------------
           <div
             key={index}
             className="bg-gray-900 text-white p-6 rounded-lg shadow-md border border-yellow-500 hover:scale-105 transition-transform duration-300"

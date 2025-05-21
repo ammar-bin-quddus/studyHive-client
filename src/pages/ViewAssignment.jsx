@@ -1,7 +1,11 @@
-import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FaCalendar, FaStickyNote, FaTag } from "react-icons/fa";
+import { MdCategory } from "react-icons/md";
+import { CiDiscount1 } from "react-icons/ci";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const ViewAssignment = () => {
   const assignmentsData = useLoaderData();
@@ -27,7 +31,7 @@ const ViewAssignment = () => {
       marks,
       examineeName,
       examineeEmail,
-      status: "pending"
+      status: "pending",
     };
 
     fetch("http://localhost:3000/allAssignments/pendingTasks", {
@@ -54,7 +58,7 @@ const ViewAssignment = () => {
 
   return (
     <div className="w-11/12 mx-auto my-8">
-      <div className="card card-side bg-base-100 shadow-xl flex flex-col sm:flex-row">
+      {/* <div className="card card-side bg-base-100 shadow-xl flex flex-col sm:flex-row">
         <figure className="sm:w-[40%] h-[300px]">
           <img src={photoUrl} alt="Movie" />
         </figure>
@@ -73,6 +77,55 @@ const ViewAssignment = () => {
               Take Assignment
             </button>
           </div>
+        </div>
+      </div> */}
+
+      <div className="bg-gray-900 min-h-[90vh] flex flex-col sm:flex-row items-start gap-6  text-white p-6 rounded-lg shadow-md border border-yellow-500">
+        <div className="w-full h-[50vh] sm:h-[80vh] sm:w-1/2 max-sm:order-2">
+          <img
+            src={photoUrl}
+            alt={title}
+            className="w-full h-full object-cover rounded-t-lg mb-4"
+          />
+        </div>
+        <div className="w-full sm:w-1/2 max-sm:order-3">
+          <h2 className="mt-1 flex items-center text-xl font-semibold text-yellow-400">
+            <FaTag className="mr-2 text-yellow-400" /> {title}
+          </h2>
+          <p className="mt-1 flex  items-center">
+            <FaStickyNote className="mr-2 text-xl text-yellow-200" />{" "}
+            Description: <span className="text-yellow-200">{description}</span>
+          </p>
+          <p className="mt-1 flex  items-center">
+            <CiDiscount1 className="mr-2 text-xl text-yellow-200" /> Marks:{" "}
+            <span className="text-yellow-200">{marks}</span>
+          </p>
+          <p className="mt-1 flex  items-center">
+            <MdCategory className="mr-2 text-xl text-yellow-200" /> Level:{" "}
+            <span className="text-yellow-200">{level}</span>
+          </p>
+          <p className="mt-1 flex items-center">
+            <FaCalendar className="mr-2 text-xl text-yellow-200" /> Deadline:{" "}
+            <span className="text-yellow-200">{dueDate}</span>
+          </p>
+
+          {/* View Details Button */}
+          <div className="">
+            <button
+              disabled={user?.email === email ? true : false}
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+              className="sharedBtn"
+            >
+              Take Assignment
+            </button>
+          </div>
+        </div>
+        <div className="max-sm:order-1">
+          <Link to="/assignments">
+            <button className="sharedBtn">
+              <IoMdArrowRoundBack />
+            </button>
+          </Link>
         </div>
       </div>
 

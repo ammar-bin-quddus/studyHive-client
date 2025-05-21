@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 
-function Navbar() {
+function Nav() {
   const { user, handleLogOut } = useContext(AuthContext);
   const [toggle, setToggle] = useState(false);
   const [activeButton, setActiveButton] = useState("/");
@@ -276,4 +276,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Nav;
